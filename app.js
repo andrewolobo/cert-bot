@@ -1,8 +1,18 @@
 require('dotenv').config(); // Make sure to install the dotenv package using npm or yarn
 const express = require('express');
 const app = express();
+import https from 'https';
 const port = 80;
 let dev = false;
+
+var hostname = "113.30.188.96";
+var redirectUri = `https://${this.hostname}:${this.port}/auth`;
+var options = {
+    //Certificate is saved at: /etc/letsencrypt/live/113-30-188-96.cloud-xip.com/fullchain.pem
+    // Key is saved at:         /etc/letsencrypt/live/113-30-188-96.cloud-xip.com/privkey.pem
+    key: fs.readFileSync('/etc/letsencrypt/live/113-30-188-96.cloud-xip.com/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/113-30-188-96.cloud-xip.com/fullchain.pem')
+}
 
 // Use environment variables for sensitive data
 const key = process.env.ACME_KEY;
@@ -23,7 +33,7 @@ if (dev) {
     });
 
 } else {
-    https.createServer(this.options, this.app).listen(3000);
+    https.createServer(options, this.app).listen(port);
 }
 
 
