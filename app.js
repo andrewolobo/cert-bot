@@ -1,7 +1,7 @@
 require('dotenv').config(); // Make sure to install the dotenv package using npm or yarn
 const express = require('express');
 const app = express();
-import https from 'https';
+const https = require('https');
 const port = 80;
 let dev = false;
 
