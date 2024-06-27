@@ -2,6 +2,7 @@ require('dotenv').config(); // Make sure to install the dotenv package using npm
 const express = require('express');
 const app = express();
 const port = 80;
+let dev = false;
 
 // Use environment variables for sensitive data
 const key = process.env.ACME_KEY;
@@ -15,6 +16,14 @@ app.get("/", (req, res) => {
     res.send("certbot-app-running");
 });
 
-app.listen(port, () => {
-    console.log("listening on port", port);
-});
+
+if (dev) {
+    app.listen(port, () => {
+        console.log("listening on port", port);
+    });
+
+} else {
+    https.createServer(this.options, this.app).listen(3000);
+}
+
+
