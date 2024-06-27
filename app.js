@@ -4,7 +4,7 @@ const app = express();
 const https = require('https');
 var fs = require('fs');
 const port = 80;
-let dev = false;
+let dev = true;
 
 var hostname = "113.30.188.96";
 var redirectUri = `https://${this.hostname}:${this.port}/auth`;
