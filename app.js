@@ -34,7 +34,7 @@ if (dev) {
     });
 
 } else {
-    https.createServer(options, this.app).listen(port);
+    https.createServer(options, app).listen(port);
 }
 
 
